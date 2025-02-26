@@ -25,15 +25,21 @@
 
         function DeckManager() {
             const [deck, setDeck] = useState(createNewDeck());
+            function handleDeckClick() {
+                if (deck.length === 0) return;
+                const randomIndex = Math.floor(Math.random() * deck.length);
+                const drawnCard = deck[randomIndex];
+                setDeck(deck.filter((_, i) => i !== randomIndex));
+            }
 
-        return (
-            <div>
-                <h1>Card Deck Manager</h1>
+            return (
                 <div>
-                    {deck.length > 0 ? 'DECK' : 'NO CARDS LEFT'}
+                    <h1>Card Deck Manager</h1>
+                    <div>
+                        {deck.length > 0 ? 'DECK' : 'NO CARDS LEFT'}
+                    </div>
                 </div>
-            </div>
-        );
+            );
         }
 
         ReactDOM.createRoot(document.getElementById('root')).render(<DeckManager />);
