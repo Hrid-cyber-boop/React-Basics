@@ -11,15 +11,32 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        function Card() {
-    return <div>Card</div>;
-}
+        const { useState } = React;
+            function createNewDeck() {
+                const suits = ['♥', '♦', '♣', '♠'];
+                const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+                return suits.flatMap(suit => 
+                    values.map(value => ({ suit, value, id: Math.random() }))
+                );
+            }
+            function Card() {
+        return <div>Card</div>;
+    }
 
-function DeckManager() {
-    return <div>Deck Manager</div>;
-}
+        function DeckManager() {
+            const [deck, setDeck] = useState(createNewDeck());
 
-ReactDOM.createRoot(document.getElementById('root')).render(<DeckManager />);
+        return (
+            <div>
+                <h1>Card Deck Manager</h1>
+                <div>
+                    {deck.length > 0 ? 'DECK' : 'NO CARDS LEFT'}
+                </div>
+            </div>
+        );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<DeckManager />);
         
     </script>
     
