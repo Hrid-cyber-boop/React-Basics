@@ -80,6 +80,11 @@ function handleCardClick(index) {
         setPickedIndex(index);
     } else if (pickedIndex === index) {
         setPickedIndex(null);
+    }else {
+        const newCards = [...dealtCards];
+        [newCards[pickedIndex], newCards[index]] = [newCards[index], newCards[pickedIndex]];
+        setDealtCards(newCards);
+        setPickedIndex(null);
     }
 }
 
