@@ -23,16 +23,22 @@
         }
 
         // Card Component
-        function Card({ suit, value }) {
-            return (
-                <div>
-                    {value} {suit}
-                </div>
-            );
-        }
+        function Card({ suit, value, isPicked, onClick }) {
+    const colorClass = suit === '♥' || suit === '♦' ? 'red' : 'black';
+    return (
+        <div 
+            className={`card ${isPicked ? 'picked' : ''}`}
+            onClick={onClick}
+        >
+            <div className={`card-value ${colorClass}`}>{value}</div>
+            <div className={`card-suit ${colorClass}`}>{suit}</div>
+        </div>
+    );
+}
 
         // DeckManager Component
         function DeckManager() {
+            const [pickedIndex, setPickedIndex] = useState(null);
             const [deck, setDeck] = useState(createNewDeck());
             const [dealtCards, setDealtCards] = useState([]);
 
@@ -69,6 +75,14 @@ function handleReset() {
     setDeck(createNewDeck());
     setDealtCards([]);
 }
+function handleCardClick(index) {
+    if (pickedIndex === null) {
+        setPickedIndex(index);
+    } else if (pickedIndex === index) {
+        setPickedIndex(null);
+    }
+}
+
 
 // In the return statement (add this button)
 <button onClick={handleReset}>Reset</button>
