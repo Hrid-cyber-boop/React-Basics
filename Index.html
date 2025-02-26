@@ -57,6 +57,21 @@
                 setDeck(combined);
                 setDealtCards(newDealt);
             }
+            // Inside DeckManager component (after handleDeal function)
+function handleReset() {
+    setDeck(createNewDeck());
+    setDealtCards([]);
+}
+
+// In the return statement (add this button)
+// Inside DeckManager component (after handleDeal function)
+function handleReset() {
+    setDeck(createNewDeck());
+    setDealtCards([]);
+}
+
+// In the return statement (add this button)
+<button onClick={handleReset}>Reset</button>
 
             return (
                 <div>
