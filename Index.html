@@ -33,14 +33,18 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // Function to create a new deck of 52 cards
-        function createNewDeck() {
-            const suits = ['♥', '♦', '♣', '♠'];
-            const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-            return suits.flatMap(suit => 
-                values.map(value => ({ suit, value, id: Math.random() }))
-            );
-        }
+        // Update the createNewDeck function
+function createNewDeck() {
+    const suits = ['♥', '♦', '♣', '♠'];
+    const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    return suits.flatMap(suit => 
+        values.map(value => ({ 
+            suit, 
+            value, 
+            id: Math.random() // Unique ID for each card
+        }))
+    );
+}
 
         // Card Component
         function Card({ suit, value, isPicked, onClick }) {
