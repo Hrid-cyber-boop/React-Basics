@@ -89,8 +89,19 @@ function handleCardClick(index) {
 }
 
 
-// In the return statement (add this button)
+
 <button onClick={handleReset}>Reset</button>
+
+function handleToss() {
+    if (pickedIndex !== null) {
+        const newCards = dealtCards.filter((_, i) => i !== pickedIndex);
+        setDealtCards(newCards);
+        setPickedIndex(null);
+    }
+}
+
+
+<button onClick={handleToss}>Toss</button>
 
             return (
                 <div>
