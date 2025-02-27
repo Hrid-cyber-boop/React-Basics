@@ -7,6 +7,26 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+   
+<style>
+    body { font-family: Arial; background: #f0f0f0; padding: 20px; }
+    .deck { 
+        width: 120px; height: 180px; background: #1a4d1a; 
+        color: white; border-radius: 10px; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .buttons { display: flex; gap: 10px; margin: 20px 0; }
+    button { padding: 10px 20px; border: none; border-radius: 5px; 
+             background: #007bff; color: white; cursor: pointer; }
+    .card { 
+        width: 120px; height: 180px; background: white; 
+        border: 2px solid #333; border-radius: 10px; padding: 10px;
+        display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .red { color: red; }
+    .black { color: black; }
+    .picked { border: 3px solid gold; }
+</style>
 </head>
 <body>
     <div id="root"></div>
