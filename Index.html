@@ -101,7 +101,16 @@ function handleToss() {
 }
 
 
+
 <button onClick={handleToss}>Toss</button>
+
+function handleRegroup() {
+    const shuffled = [...dealtCards].sort(() => Math.random() - 0.5);
+    setDealtCards(shuffled);
+}
+
+
+<button onClick={handleRegroup}>Regroup</button>
 
             return (
                 <div>
